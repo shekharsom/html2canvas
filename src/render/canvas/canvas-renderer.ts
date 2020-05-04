@@ -575,7 +575,8 @@ export class CanvasRenderer {
                 const gradient = ctx.createLinearGradient(x0, y0, x1, y1);
 
                 processColorStops(backgroundImage.stops, lineLength).forEach(colorStop =>
-                    gradient.addColorStop(colorStop.stop, asString(colorStop.color))
+                    try{gradient.addColorStop(colorStop.stop, asString(colorStop.color))
+                    }catch{}
                 );
 
                 ctx.fillStyle = gradient;
